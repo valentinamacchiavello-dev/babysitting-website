@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Angels | Babysitting</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #101b38;
+      color: #f4c9dc;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 25px 35px;
+      position: relative;
+    }
+
+    .menu-button {
+      background: none;
+      border: none;
+      color: #f4c9dc;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    nav {
+      display: none;
+      position: absolute;
+      right: 25px;
+      top: 65px;
+      background: #192748;
+      padding: 18px;
+      border: 1px solid #f4c9dc;
+      border-radius: 8px;
+      z-index: 2;
+    }
+
+    nav.show {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    nav a {
+      color: #f4c9dc;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    section {
+      display: none;
+      min-height: 80vh;
+      padding: 55px 25px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    #home {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    #home:not(.active) {
+      display: none;
+    }
+
+    h1 {
+      font-size: clamp(42px, 9vw, 75px);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-bottom: 25px;
+    }
+
+    p, li {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .subtitle {
+      font-size: 21px;
+    }
+
+    .card {
+      border: 1px solid #d99bb9;
+      border-radius: 10px;
+      padding: 22px;
+      margin: 18px 0;
+      background: #172443;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #c99ab2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+    <nav id="menu">
+      <a href="#" onclick="showPage('about')">About Me</a>
+      <a href="#" onclick="showPage('schedules')">Schedules</a>
+      <a href="#" onclick="showPage('reviews')">Reviews</a>
+      <a href="#" onclick="showPage('contact')">Contact Info</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="home" class="active">
+      <h1>HELLO PARENTS!!</h1>
+      <p class="subtitle">welcome to my Babysitting website!!</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+
+      <p>
+        Hello!! I'm Valentina! I'm a friendly and caring babysitter
+        with experience looking after children. I have three younger
+        brothers, and I truly enjoy taking care of others.
+        I would be very happy to meet you and your family!
+      </p>
+
+      <div class="card">
+        <h3>A little about me ♡</h3>
+        <ul>
+          <li>I'm 14 years old.</li>
+          <li>I have three younger brothers.</li>
+          <li>I've looked after children before.</li>
+          <li>I genuinely enjoy caring for others.</li>
+        </ul>
+      </div>
+
+      <p>(˶ᵔ ᵕ ᵔ˶) ♡</p>
+      <p>Thank you for visiting my website!</p>
+    </section>
+
+    <section id="schedules">
+      <h2>Schedules</h2>
+
+      <div class="card">
+        <h3>Friday</h3>
+        <p>From 6:00 PM onwards.</p>
+      </div>
+
+      <div class="card">
+        <h3>Saturday</h3>
+        <p>Available times can be confirmed with my parent/guardian.</p>
+      </div>
+
+      <div class="card">
+        <h3>School Holidays</h3>
+        <p>Subject to availability.</p>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <h2>Reviews</h2>
+      <p>Reviews coming soon ♡</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Info</h2>
+
+      <div class="card">
+        <h3>Location</h3>
+        <p>Scholar Close — local families only.</p>
+      </div>
+
+      <p>
+        For enquiries and availability, please ask my
+        parent/guardian to arrange contact.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    Little Angels ♡
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    function showPage(page) {
+      document.querySelectorAll("main section").forEach(section => {
+        section.classList.remove("active");
+      });
+
+      document.getElementById(page).classList.add("active");
+      document.getElementById("menu").classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
