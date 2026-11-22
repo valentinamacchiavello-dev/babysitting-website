@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Angels</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #101a38;
+  color: #f2c6dc;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+}
+
+header {
+  height: 85px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 7%;
+  position: relative;
+}
+
+.menu-button {
+  color: #f2c6dc;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+nav {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 7%;
+  background: #182647;
+  border: 1px solid #dca9c4;
+  padding: 22px 28px;
+  min-width: 190px;
+  z-index: 5;
+}
+
+nav.show {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+nav a {
+  color: #f2c6dc;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+nav a:hover {
+  color: white;
+}
+
+main {
+  min-height: calc(100vh - 145px);
+}
+
+.page {
+  display: none;
+  max-width: 900px;
+  margin: auto;
+  padding: 65px 8%;
+}
+
+.page.active {
+  display: block;
+}
+
+#home {
+  min-height: 75vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#home.active {
+  display: flex;
+}
+
+.home-title {
+  font-size: clamp(48px, 10vw, 88px);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+.home-subtitle {
+  font-size: clamp(18px, 3vw, 25px);
+  margin-top: 22px;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 23px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+p, li {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.card {
+  border: 1px solid #dca9c4;
+  background: #172443;
+  padding: 25px;
+  margin: 20px 0;
+}
+
+ul {
+  padding-left: 22px;
+}
+
+.small-note {
+  color: #d8a9c2;
+  font-size: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #c99ab2;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <nav id="menu">
+    <a href="#" onclick="showPage('about')">About Me</a>
+    <a href="#" onclick="showPage('schedules')">Schedules</a>
+    <a href="#" onclick="showPage('reviews')">Reviews</a>
+    <a href="#" onclick="showPage('contact')">Contact Info</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="home" class="page active">
+  <h1 class="home-title">HELLO<br>PARENTS!!</h1>
+  <p class="home-subtitle">welcome to my Babysitting website!!</p>
+</section>
+
+<section id="about" class="page">
+  <h2>About Me</h2>
+
+  <p>
+    Hello!! I'm Valentina! I'm a friendly and caring babysitter
+    with experience looking after children. I have three younger
+    brothers, and I truly enjoy taking care of others.
+    I would be very happy to meet you and your family!
+  </p>
+
+  <div class="card">
+    <h3>A little about me</h3>
+    <ul>
+      <li>I have three younger brothers.</li>
+      <li>I've looked after children before.</li>
+      <li>I genuinely enjoy caring for others.</li>
+    </ul>
+  </div>
+
+  <p class="small-note">(˶ᵔ ᵕ ᵔ˶) ♡</p>
+</section>
+
+<section id="schedules" class="page">
+  <h2>Schedules</h2>
+
+  <div class="card">
+    <h3>Friday</h3>
+    <p>From 6:00 PM onwards.</p>
+  </div>
+
+  <div class="card">
+    <h3>Saturday</h3>
+    <p>Availability can be confirmed with my parent/guardian.</p>
+  </div>
+
+  <div class="card">
+    <h3>School Holidays</h3>
+    <p>Subject to availability.</p>
+  </div>
+</section>
+
+<section id="reviews" class="page">
+  <h2>Reviews</h2>
+  <div class="card">
+    <p>Reviews coming soon.</p>
+  </div>
+</section>
+
+<section id="contact" class="page">
+  <h2>Contact Info</h2>
+  <div class="card">
+    <h3>Local babysitting</h3>
+    <p>For local families in my area.</p>
+    <p class="small-note">
+      Please ask my parent/guardian about enquiries and availability.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>Little Angels ♡</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
+
+function showPage(page) {
+  document.querySelectorAll(".page").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(page).classList.add("active");
+  document.getElementById("menu").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
